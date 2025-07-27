@@ -50,10 +50,12 @@
     </style>
 </head>
 <body>
-    <audio autoplay loop>
-        <source src="nhacnen.mp3" type="audio/mpeg">
-        Trình duyệt của bạn không hỗ trợ âm thanh.
-    </audio>
+<button id="playButton">🎵 Bắt đầu nghe nhạc</button>
+<audio id="bgMusic" loop>
+    <source src="nhacnen.mp3" type="audio/mpeg">
+    Trình duyệt của bạn không hỗ trợ âm thanh.
+</audio>
+
 
     <h1>🎉 Lời chúc tốt nghiệp 🎓</h1>
     <div class="card" id="card">
@@ -73,6 +75,12 @@
         img.src = randomKey;
         img.alt = randomKey;
         msg.innerHTML = data[randomKey];
+        const music = document.getElementById("bgMusic");
+const playBtn = document.getElementById("playButton");
+playBtn.addEventListener("click", () => {
+    music.play().catch(e => console.error("Không thể phát nhạc:", e));
+    playBtn.style.display = "none";
+});
     </script>
 </body>
 </html>
